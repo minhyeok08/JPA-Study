@@ -9,7 +9,7 @@ import java.util.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorValue("dtype") // 싱글테이블이므로 저장할 때 구분하기 위함
+@DiscriminatorColumn(name = "dtype") // 싱글테이블이므로 저장할 때 구분하기 위함
 @Getter @Setter
 public abstract class Item {
 
@@ -23,5 +23,5 @@ public abstract class Item {
     private int stockQuantity;
 
     @ManyToMany(mappedBy = "items")
-    private List<Category> categories = new ArrayList<>();
+    private List<Category> categories = new ArrayList<Category>();
 }
