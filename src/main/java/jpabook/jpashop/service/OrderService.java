@@ -36,10 +36,10 @@ public class OrderService {
         delivery.setAddress(member.getAddress());
 
         //주문상품 생성
-        OrderItem orderItme = OrderItem.createOrderItem(item, item.getPrice(), count);
+        OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
 
         //주문 생성
-        Order order = Order.createOrder(member, delivery, orderItme);
+        Order order = Order.createOrder(member, delivery, orderItem);
         // new Order(); ==> @NoArgsConstructor(access = AccessLevel.PROTECTED) 로 막고, 다른 생성 메소드 사용 유도
 
         //주문 저장
